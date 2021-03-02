@@ -1,0 +1,18 @@
+<div class="container bg-white text-center">
+    <h1 class="display-4">Covid Tracker Countries</h1>
+    <hr>
+    <div class="col-12 offset-3">
+        <div class="form-group col-lg-5">
+            <label for="c">Select Country</label>
+            <select class="form-control" name="" id="c" #input (change)='updateValues(input.value)'>
+                <option value="{{country}}" *ngFor="let country of countries">{{ country }}</option>
+            </select>
+        </div>
+    </div>
+    <app-dashboard-card
+        [totalConfirmed]="totalConfirmed"
+        [totalActive]="totalActive"
+        [totalDeaths]="totalDeaths"
+        [totalRecovered]="totalRecovered"
+    ></app-dashboard-card>
+</div>

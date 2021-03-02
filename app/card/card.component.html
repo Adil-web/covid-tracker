@@ -1,0 +1,30 @@
+<div class="card">
+    <hr>
+    <!-- <input type="text" style="width: 100%; margin-bottom: .2rem;" #myInput (input)="inpModel(myInput.value)" [value]="title"> -->
+    <input type="text" style="width: 100%; margin-bottom: .2rem;" [(ngModel)]="card.title">
+    <hr>
+    <h2 [ngStyle]="{
+        color: card.title.length < 5 ? 'red' : 'purple',
+        'font-size': card.title.length > 10 ? '2rem' : '1rem'
+    }">{= index =} {= card.title =}</h2>
+    <p class="text" [ngClass]="{
+        blue: textColor === 'blue',
+        red: textColor === 'red'
+    }">{= card.text =}</p>
+    <button (click)="textColor='blue'">Change blue</button>
+    <button (click)="textColor='red'">Change red</button>
+    <small>{= number =}</small>
+    <ul *ngFor="let item of list">
+        <li>{=item=}</li>
+    </ul>
+    <pre>{=obj | json=}</pre>
+    <p>{=getInfo()=}</p>
+    <div>
+        <img [src]="imgUrl" alt="=title=" width="100">
+    </div>
+    <br>
+    <button (click)="card.title = 'lol'">Change Title</button>
+    <button (click)="changeImage()">Change Img</button>
+    <br>
+    <em>{= cardDate | date:'short' =}</em>
+</div>
